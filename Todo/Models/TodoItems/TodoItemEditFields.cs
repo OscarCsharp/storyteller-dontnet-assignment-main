@@ -1,4 +1,5 @@
 ﻿using Todo.Data.Entities;
+using Todo.Migrations;
 
 namespace Todo.Models.TodoItems
 {
@@ -11,10 +12,10 @@ namespace Todo.Models.TodoItems
         public bool IsDone { get; set; }
         public string ResponsiblePartyId { get; set; }
         public Importance Importance { get; set; }
-
+        public int Rank { get; set; }
         public TodoItemEditFields() { }
 
-        public TodoItemEditFields(string todoListId, string todoListTitle, string todoItemId, string title, bool isDone, string responsiblePartyId, Importance importance)
+        public TodoItemEditFields(string todoListId, string todoListTitle, string todoItemId, string title, bool isDone, string responsiblePartyId, Importance importance,int rank)
         {
             TodoListId = todoListId;
             TodoListTitle = todoListTitle;
@@ -23,6 +24,7 @@ namespace Todo.Models.TodoItems
             IsDone = isDone;
             ResponsiblePartyId = responsiblePartyId;
             Importance = importance;
+            Rank = rank;
         }
     }
 }
