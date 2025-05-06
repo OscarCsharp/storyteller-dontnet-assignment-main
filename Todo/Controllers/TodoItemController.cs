@@ -20,7 +20,7 @@ namespace Todo.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(int todoListId)
+        public IActionResult Create(string todoListId)
         {
             var todoList = dbContext.SingleTodoList(todoListId);
             var fields = TodoItemCreateFieldsFactory.Create(todoList, User.Id());
@@ -42,7 +42,7 @@ namespace Todo.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int todoItemId)
+        public IActionResult Edit(string todoItemId)
         {
             var todoItem = dbContext.SingleTodoItem(todoItemId);
             var fields = TodoItemEditFieldsFactory.Create(todoItem);
@@ -65,7 +65,7 @@ namespace Todo.Controllers
             return RedirectToListDetail(todoItem.TodoListId);
         }
 
-        private RedirectToActionResult RedirectToListDetail(int fieldsTodoListId)
+        private RedirectToActionResult RedirectToListDetail(string fieldsTodoListId)
         {
             return RedirectToAction("Detail", "TodoList", new {todoListId = fieldsTodoListId});
         }

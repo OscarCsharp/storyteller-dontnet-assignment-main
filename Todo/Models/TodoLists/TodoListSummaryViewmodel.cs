@@ -4,7 +4,7 @@ namespace Todo.Models.TodoLists
 {
     public class TodoListSummaryViewmodel
     {
-        public int TodoListId { get; }
+        public string TodoListId { get; }
         public string Title { get; }
         public int NumberOfNotDoneItems { get; }
         public UserSummaryViewmodel Owner { get; }
@@ -16,7 +16,7 @@ namespace Todo.Models.TodoLists
         /// <param name="title">The title of the todo list</param>
         /// <param name="numberOfNotDoneItems">Count of incomplete items in this list</param>
         /// <param name="owner">The user who owns this list</param>
-        public TodoListSummaryViewmodel(int todoListId, string title, int numberOfNotDoneItems, UserSummaryViewmodel owner)
+        public TodoListSummaryViewmodel(string todoListId, string title, int numberOfNotDoneItems, UserSummaryViewmodel owner)
         {
             TodoListId = todoListId;
             Title = title;

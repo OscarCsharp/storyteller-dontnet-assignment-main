@@ -4,17 +4,17 @@ namespace Todo.Models.TodoItems
 {
     public class TodoItemEditFields
     {
-        public int TodoListId { get; set; }
+        public string TodoListId { get; set; }
         public string Title { get; set; }
         public string TodoListTitle { get; set; }
-        public int TodoItemId { get; set; }
+        public string TodoItemId { get; set; }
         public bool IsDone { get; set; }
         public string ResponsiblePartyId { get; set; }
         public Importance Importance { get; set; }
 
         public TodoItemEditFields() { }
 
-        public TodoItemEditFields(int todoListId, string todoListTitle, int todoItemId, string title, bool isDone, string responsiblePartyId, Importance importance)
+        public TodoItemEditFields(string todoListId, string todoListTitle, string todoItemId, string title, bool isDone, string responsiblePartyId, Importance importance)
         {
             TodoListId = todoListId;
             TodoListTitle = todoListTitle;

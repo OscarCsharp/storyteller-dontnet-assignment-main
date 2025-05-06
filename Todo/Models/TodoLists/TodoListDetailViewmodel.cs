@@ -5,7 +5,7 @@ namespace Todo.Models.TodoLists
 {
     public class TodoListDetailViewmodel
     {
-        public int TodoListId { get; }
+        public string TodoListId { get; }
         public string Title { get; }
         public ICollection<TodoItemSummaryViewmodel> Items { get; }
 
@@ -15,7 +15,7 @@ namespace Todo.Models.TodoLists
         /// <param name="items">Collection of items in this list</param>
         /// <param name="todoListId">The ID of the todo list</param>
         /// <param name="title">The title of the todo list</param>
-        public TodoListDetailViewmodel(int todoListId, string title, ICollection<TodoItemSummaryViewmodel> items)
+        public TodoListDetailViewmodel(string todoListId, string title, ICollection<TodoItemSummaryViewmodel> items)
         {
             Items = items;
             TodoListId = todoListId;

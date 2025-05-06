@@ -1,4 +1,5 @@
-﻿using Todo.Data.Entities;
+﻿using System;
+using Todo.Data.Entities;
 using Todo.Models.TodoItems;
 
 namespace Todo.EntityModelMappers.TodoItems
@@ -8,6 +9,9 @@ namespace Todo.EntityModelMappers.TodoItems
         public static TodoItemEditFields Create(TodoItem todoItem)
         {
             var todoList = todoItem.TodoList;
+            //var TodoListId = new Guid().ToString();
+            //var TodoItemId = new Guid().ToString();
+
             return new TodoItemEditFields(todoList.TodoListId, todoList.Title, todoItem.TodoItemId, todoItem.Title,
                 todoItem.IsDone, todoItem.ResponsiblePartyId, todoItem.Importance);
         }

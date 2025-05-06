@@ -14,7 +14,7 @@ namespace Todo.Services
                 .Where(tl => tl.Owner.Id == userId);
         }
 
-        public static TodoList SingleTodoList(this ApplicationDbContext dbContext, int todoListId)
+        public static TodoList SingleTodoList(this ApplicationDbContext dbContext, string todoListId)
         {
             return dbContext.TodoLists.Include(tl => tl.Owner)
                 .Include(tl => tl.Items)
@@ -22,7 +22,7 @@ namespace Todo.Services
                 .Single(tl => tl.TodoListId == todoListId);
         }
 
-        public static TodoItem SingleTodoItem(this ApplicationDbContext dbContext, int todoItemId)
+        public static TodoItem SingleTodoItem(this ApplicationDbContext dbContext, string todoItemId)
         {
             return dbContext.TodoItems.Include(ti => ti.TodoList).Single(ti => ti.TodoItemId == todoItemId);
         }
