@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Todo.Data.Entities;
 using Todo.Models.TodoItems;
 
 namespace Todo.Models.TodoLists
@@ -17,7 +19,8 @@ namespace Todo.Models.TodoLists
         /// <param name="title">The title of the todo list</param>
         public TodoListDetailViewmodel(string todoListId, string title, ICollection<TodoItemSummaryViewmodel> items)
         {
-            Items = items;
+            var sortedItems = items.OrderBy(t => t.Importance).ToList();
+            Items = sortedItems;
             TodoListId = todoListId;
             Title = title;
         }
