@@ -19,12 +19,13 @@ namespace Todo.Data.Entities {
         public int Rank { get; set; }
         protected TodoItem() { }
 
-        public TodoItem(string todoListId, string responsiblePartyId, string title, Importance importance)
+        public TodoItem(string todoListId, string responsiblePartyId, string title, Importance importance,int rank = 0)
         {
             TodoListId = todoListId;
             ResponsiblePartyId = responsiblePartyId;
             Title = title;
             Importance = importance;
+            Rank = rank;
         }
     }
 }
