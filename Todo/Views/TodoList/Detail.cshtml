@@ -11,6 +11,16 @@
 
 <div class="col-md-6">
 
+    <form asp-action="Detail" method="get">
+        <input type="hidden" name="todoListId" value="@Model.TodoListId" />
+        <label>
+            <input type="checkbox" name="showCompleted" value="true"
+            @(ViewData["showCompleted"] != null && (bool)ViewData["showCompleted"] ? "checked" : "")
+                   onchange="this.form.submit()" />
+            Show Completed
+        </label>
+    </form>
+
     <ul class="list-group">
 
         <li class="list-group-item">
@@ -34,7 +44,7 @@
                     contextualClass = "";
                     break;
             }
-
+           
             <li class="list-group-item @contextualClass">
                 
                 <div class="row">
