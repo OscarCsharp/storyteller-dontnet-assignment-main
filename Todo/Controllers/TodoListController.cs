@@ -17,17 +17,26 @@ namespace Todo.Controllers
     {
         private readonly ApplicationDbContext dbContext;
         private readonly IUserStore<IdentityUser> userStore;
+        private readonly GravatarProfileService _profileService;
 
-        public TodoListController(ApplicationDbContext dbContext, IUserStore<IdentityUser> userStore)
+        public TodoListController(ApplicationDbContext dbContext, IUserStore<IdentityUser> userStore, GravatarProfileService profileService)
         {
             this.dbContext = dbContext;
             this.userStore = userStore;
+            _profileService = profileService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var userId = User.Id();
             var todoLists = dbContext.RelevantTodoLists(userId);
+
+            foreach (var list in todoLists)
+            {
+                var gravatarName = await _profileService.GetDisplayNameAsync(list.Owner.Email);
+                list.Owner.UserName = gravatarName ?? list.Owner.UserName;
+            }
+
             var viewmodel = TodoListIndexViewmodelFactory.Create(todoLists);
             return View(viewmodel);
         }
