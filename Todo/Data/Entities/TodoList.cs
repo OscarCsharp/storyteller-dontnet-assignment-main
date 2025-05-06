@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
 namespace Todo.Data.Entities
 {
     public class TodoList
     {
-        public string TodoListId { get; set; }
+        [Key]
+        public string TodoListId { get; set; } = Guid.NewGuid().ToString();
         public string Title { get; set; }
         public IdentityUser Owner { get; set; }
 
@@ -16,7 +18,6 @@ namespace Todo.Data.Entities
 
         public TodoList(IdentityUser owner, string title)
         {
-            TodoListId = new Guid().ToString();
             Owner = owner;
             Title = title;
         }

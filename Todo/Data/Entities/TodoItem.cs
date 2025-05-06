@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Todo.Data.Entities {
     public class TodoItem
     {
-        public string TodoItemId { get; set; }
+        [Key]
+        public string TodoItemId { get; set; } = Guid.NewGuid().ToString();
         public string Title { get; set; }
         public string ResponsiblePartyId { get; set; }
         public IdentityUser ResponsibleParty { get; set; }
@@ -18,7 +20,6 @@ namespace Todo.Data.Entities {
 
         public TodoItem(string todoListId, string responsiblePartyId, string title, Importance importance)
         {
-            TodoItemId = new Guid().ToString();
             TodoListId = todoListId;
             ResponsiblePartyId = responsiblePartyId;
             Title = title;

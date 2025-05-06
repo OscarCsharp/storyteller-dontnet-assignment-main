@@ -4,5 +4,5 @@
 4. Do tasks step by step :
    - Make sure the application is connected to the database server and you are able to run migration
    - Use Test Explorer to check and trace the problem with Unit test then fix it
-   -  Create user and login, create and view items.
+   -  Create user and login, create and view items. (NB: I change the ID prorterties for todoItem and todoList from int to string)
    - Fix UI as 

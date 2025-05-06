@@ -1,10 +1,11 @@
-﻿using Todo.Data.Entities;
+﻿using System;
+using Todo.Data.Entities;
 
 namespace Todo.Models.TodoItems
 {
     public class TodoItemCreateFields
     {
-        public string TodoListId { get; set; }
+        public string TodoListId { get; set; } 
         public string Title { get; set; }
         public string TodoListTitle { get; set; }
         public string ResponsiblePartyId { get; set; }
@@ -14,7 +15,6 @@ namespace Todo.Models.TodoItems
 
         public TodoItemCreateFields(string todoListId, string todoListTitle, string responsiblePartyId)
         {
-            TodoListId = todoListId;
             TodoListTitle = todoListTitle;
             ResponsiblePartyId = responsiblePartyId;
         }
